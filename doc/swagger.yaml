@@ -1,0 +1,72 @@
+openapi: 3.1.0
+info:
+  title: Aimgame Api
+  description: Aimgame API documentation
+  contact:
+    email: kumudu@texcaltd.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:4065
+    description: Local
+  - url: "https://api-staging.aimgame.com"
+    description: Staging
+  - url: "https://api.aimgame.com"
+    description: Production
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+tags:
+  - name: User
+  - name: Workspace
+  - name: Workspace Users
+  - name: Test
+paths:
+  /user:
+    get:
+      tags:
+        - User
+      summary: Get all users
+      description: ""
+      operationId: users
+      parameters: []
+      responses:
+        "200":
+          description: successful operation
+        "400":
+          description: unsuccessful operation
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - User
+      summary: Create User
+      description: ""
+      operationId: usersCreate
+      parameters: []
+      responses:
+        "200":
+          description: successful operation
+        "400":
+          description: unsuccessful operation
+      security:
+        - bearerAuth: []
+  /uploadTest:
+    post:
+      tags:
+        - Test
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+      responses:
+        "200":
+          description: successful operation
+        "400":
+          description: unsuccessful operation
