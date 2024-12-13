@@ -40,7 +40,7 @@ exports.upload = (base64, folder) => {
   });
 };
 
-exports.copyImage = (image) => {
+exports.copyImage = (image) => { 
   AWS.config.update({
     accessKeyId: process.env.ACCESS_KEY,
     secretAccessKey: process.env.SECRET_KEY,
