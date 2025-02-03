@@ -4,17 +4,27 @@ const { validationRules } = require("../helper/validationHelper");
 
 const validate = global.validate;
 
-exports.getAllOpportunities = async (req, res, next) => {
-  try {
-    const filter = req.query;
+exports.getAllOpportunities = async (filter) => {
+  console.log("filter", filter);
+  const opportunities = await Opportunity.find(filter)
+    .populate({
+      path: "funnelStatusId",
+      model: FunnelStatusModel,
+      select: "_id status stage rate level", // Include 'level' in the select statement
+    })
+    .populate({
+      path: "workspaceId",
+      select: "_id name location", // Adjust fields as needed
+    })
+    .populate({
+      path: "partners",
+      select: "_id name company role", // Adjust fields as needed
+    })
+    .exec();
 
-    const data = await opportunityService.getAllOpportunities(filter);
-    // console.log("all data : ", data);
-    res.status(200).json({ success: true, status: 200, data });
-  } catch (error) {
-    next(error);
-  }
+  return opportunities;
 };
+
 
 exports.getOpportunitiesByWorkspaceId = async (req, res, next) => {
   try {
