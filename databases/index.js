@@ -7,7 +7,7 @@ module.exports.connect = async () => {
     //   // `mongodb+srv://${database.user}:${database.password}@${database.host}/${database.database}?retryWrites=true&w=majority`
     //   `mongodb+srv://dgnayanajith:CdOqhYZJEzZJlfZO@medcube.qvekw.mongodb.net/AimGame?retryWrites=true&w=majority`
     // );
-    mongoose.connect('mongodb://username:password@host:port/database', {
+    mongoose.connect('mongodb+srv://dgnayanajith:CdOqhYZJEzZJlfZO@medcube.qvekw.mongodb.net/AimGame?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       connectTimeoutMS: 10000,
