@@ -36,7 +36,7 @@ exports.createPartner = async (partner) => {
     const image = partner.image;
     const imageData = await s3service.upload(image, "partners");
     partner.image = imageData.Location;
-  }
+  } 
 
   const newPartner = await new PartnerModel(partner).save();
   return newPartner;

@@ -25,7 +25,7 @@ const partnerSchema = Schema({
   workspaceId: {
     type: Schema.Types.ObjectId,
     ref: "Workspace",
-    required: true,
+    required: true, 
   },
   contacts: [
     {
