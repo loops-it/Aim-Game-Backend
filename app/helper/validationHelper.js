@@ -33,6 +33,7 @@ const validationRules = {
           email: Joi.string().email().optional().allow("", null),
           phone: Joi.string().optional().allow("", null),
           isPrimary: Joi.boolean().optional().allow("", null),
+          business: Joi.string().allow("", null),
         })
       )
       .optional(),
