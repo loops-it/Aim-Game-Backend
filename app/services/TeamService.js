@@ -16,8 +16,8 @@ exports.getTeamMembers = async () => {
 };
 exports.getTeamMembersPresales = async () => {
   const users = await UserModel.find({
-    userRole: "team member",
-    designation: "Presales",
+    userRole: "presales",
+    // designation: "Presales",
   });
   return users;
 };
