@@ -29,7 +29,7 @@ const createToken = async (req, res, next) => {
     return res.status(400).json({
       success: false,
       code: 400,
-      msg: "Email and password are required in the request body",
+      msg: "Email and password are required",
     });
   }
 
