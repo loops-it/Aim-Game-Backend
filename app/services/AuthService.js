@@ -146,7 +146,7 @@ exports.resetPassword = async ({ email, otp, password }) => {
   const user = await UserModel.findOne({
     email,
     otp,
-    otpExpiry: { $gt: new Date() },
+    // otpExpiry: { $gt: new Date() },
   });
 
   console.log("user", user);
