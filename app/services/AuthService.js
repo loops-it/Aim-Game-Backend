@@ -158,7 +158,7 @@ exports.resetPassword = async ({ email, otp, password }) => {
   const isSamePassword = await bcrypt.compare(password, user.password);
 
   if (isSamePassword) {
-    throw new Error("New password cannot be the same as the current password");
+    throw new notFoundException("New password cannot be the same as the current password");
   }
 
   const saltRounds = 10;
