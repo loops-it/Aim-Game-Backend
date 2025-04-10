@@ -110,16 +110,14 @@ exports.updateClient = async (id, client) => {
   if (!currentUser) {
       throw new Error("User not found");
   }
-  if (client.photo && client.photo !== currentUser.photo) {
-      const image = client.photo;
-      try {
-          const imageData = await s3service.upload(image, "clients");
-          client.photo = imageData.Location;
-      } catch (error) {
-          throw new Error('Image upload failed: ' + error.message);
-      }
-  } else {
-    client.photo = currentUser.photo;
+  
+  if (client.photo)  {
+    const image = client.photo;
+    const imageData = await s3service.upload(image, "clients");
+    client.photo = imageData.Location;
+  }
+  else{
+    client.photo = null;
   }
   const updatedClient = await ClientModel.findByIdAndUpdate(id, client, {
     new: true,

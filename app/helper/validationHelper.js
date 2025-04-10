@@ -66,7 +66,7 @@ const validationRules = {
   updateClient: {
     name: Joi.string().min(1).max(255).optional(), // Example: Ensure the name is between 1 and 255 characters
     address: Joi.string().optional(),
-    photo: Joi.string().optional(), // Assuming 'photo' is a URL
+    // photo: Joi.string().optional(), // Assuming 'photo' is a URL
     industryTypeId: Joi.string().optional(),
     email: Joi.string().email().optional(),
     workspaceId: Joi.string().optional(),
